@@ -64,6 +64,7 @@
 
   - name: load mysql schema
     ansible.builtin.shell: mysql -h mysql.daws76s.online -uroot -pRoboShop@1 < /app/schema/shipping.sql 
+    when: output.stdout != "1"
   
   - name: restart shipping
     ansible.builtin.service:
